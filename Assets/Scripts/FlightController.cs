@@ -17,7 +17,7 @@ public class FlightController : MonoBehaviour
     { 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        //                  Why is freezeRotation needed? Answer in your PDF. 
+         
     }
     
     void Update() 
@@ -27,10 +27,13 @@ public class FlightController : MonoBehaviour
     } 
  
     private void HandleRotation() 
-    { 
-        // TODO (Task 3-C): 
-        // Pitch   
-        // Roll    
+    {   
+        // all the axis are defined at ınput manager
+        float pitch = pitchSpeed * Time.deltaTime * Input.GetAxis("Pitch");
+        float yaw = yawSpeed * Time.deltaTime * Input.GetAxis("Yaw");
+        float roll = rollSpeed * Time.deltaTime * Input.GetAxis("Roll");
+
+        transform.Rotate(pitch, yaw, roll, Space.Self);   
  
     } 
  
