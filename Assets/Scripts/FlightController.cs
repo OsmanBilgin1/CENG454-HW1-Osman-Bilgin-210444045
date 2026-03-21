@@ -20,7 +20,7 @@ public class FlightController : MonoBehaviour
         //                  Why is freezeRotation needed? Answer in your PDF. 
     }
     
-    void Update()// or FixedUpdate() 
+    void Update() 
     { 
         HandleRotation(); 
         HandleThrust(); 
@@ -36,7 +36,10 @@ public class FlightController : MonoBehaviour
  
     private void HandleThrust() 
     { 
-        // TODO (Task 3-D):
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.Translate(Vector3.forward * thrustSpeed * Time.deltaTime, Space.Self);
+        }
          
     } 
 }
